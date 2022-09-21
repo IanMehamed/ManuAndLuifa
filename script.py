@@ -8,15 +8,20 @@ def who_get_to_21():
             manu = manu + shot_value
         else:
             luifa = luifa + shot_value
-        if manu >= 21 or luifa >= 21:
-            if manu > luifa:
-                print("Manu is the winner!")
-            else:
-                print("Luifa is the winner!")
-            print(f"score \nManu: {manu}\nLuifa: {luifa}")
+        if check_for_winner(manu, luifa):
             break
     if manu < 21 and luifa < 21:
         print('In this match, nobody won... check out the score')
+
+def check_for_winner(manu, luifa):
+    if manu >= 21 or luifa >= 21:
+        if manu > luifa:
+            print("Manu is the winner!")
+        else:
+            print("Luifa is the winner!")
+        print(f"score \nManu: {manu}\nLuifa: {luifa}")
+        return True
+    return False
 
 def get_points(letter):
     if letter.lower() not in ['m', 'l']:
